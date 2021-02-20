@@ -9,6 +9,13 @@ public class TestSpring {
                 "applicationContext.xml"
         );
 
+
+        ClassicalMusic classicalMusic = context.getBean("musicBean", ClassicalMusic.class);
+        ClassicalMusic classicalMusic2 = context.getBean("musicBean", ClassicalMusic.class);
+
+        System.out.println(classicalMusic.getSong());
+        System.out.println(classicalMusic2.getSong());
+/*
         //Music music = context.getBean("musicBean", Music.class);
 
         //IoC
@@ -36,7 +43,7 @@ public class TestSpring {
         secondMusicPlayer.playMusicList();
         System.out.println("=======================");
         System.out.println(secondMusicPlayer.getVolume());
-        System.out.println(secondMusicPlayer.getName());
+        System.out.println(secondMusicPlayer.getName());*/
 
         context.close();
     }

@@ -9,7 +9,14 @@
 
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
-    <bean id="musicBean1"
+    <bean id="musicBean"
+          class="ru.alexander.maven.spring.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic"
+          scope="prototype"
+    />
+    <!--<bean id="musicBean1"
           class="ru.alexander.maven.spring.ClassicalMusic">
     </bean>
 
@@ -19,9 +26,9 @@
 
     <bean id="musicBean3"
           class="ru.alexander.maven.spring.RockMusic">
-    </bean>
+    </bean>-->
 
-    <bean id="musicPlayer"
+    <!--<bean id="musicPlayer"
           class="ru.alexander.maven.spring.MusicPlayer"
           scope="prototype">
 
@@ -35,6 +42,6 @@
 
         <property name="name" value="${musicPlayer.name}" />
         <property name="volume" value="${musicPlayer.volume}" />
-    </bean>
+    </bean>-->
 
 </beans>
