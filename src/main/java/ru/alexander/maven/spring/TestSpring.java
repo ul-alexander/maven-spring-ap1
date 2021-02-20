@@ -14,13 +14,29 @@ public class TestSpring {
         //IoC
         //MusicPlayer musicPlayer = new MusicPlayer(music);
 
-        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        MusicPlayer secondMusicPlayer = context.getBean("musicPlayer" , MusicPlayer.class);
+
+        firstMusicPlayer.setVolume(30);
+
+        //сравнение обьектов если true то один и тот же обьект
+        boolean comparison = firstMusicPlayer == secondMusicPlayer;
 
         System.out.println("=======================");
-        musicPlayer.playMusicList();
+        System.out.println(comparison);
         System.out.println("=======================");
-        System.out.println(musicPlayer.getVolume());
-        System.out.println(musicPlayer.getName());
+        System.out.println(firstMusicPlayer.hashCode());
+        System.out.println(secondMusicPlayer.hashCode());
+        System.out.println("=======================");
+        firstMusicPlayer.playMusicList();
+        System.out.println("=======================");
+        System.out.println(firstMusicPlayer.getVolume());
+        System.out.println(firstMusicPlayer.getName());
+        System.out.println("=======================");
+        secondMusicPlayer.playMusicList();
+        System.out.println("=======================");
+        System.out.println(secondMusicPlayer.getVolume());
+        System.out.println(secondMusicPlayer.getName());
 
         context.close();
     }
