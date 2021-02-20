@@ -22,7 +22,8 @@
     </bean>
 
     <bean id="musicPlayer"
-          class="ru.alexander.maven.spring.MusicPlayer">
+          class="ru.alexander.maven.spring.MusicPlayer"
+          scope="prototype">
 
         <property name="musicList">
             <list>
